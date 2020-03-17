@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      List of all furnitures
+      List of Furniture for Sale
     </h1>
   </div>
 </div>
@@ -20,7 +20,7 @@
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" class="form-control">
+        <input type="text" id="name_box" name="query_name" class="form-control" placeholder="Enter a furniture name">
       </div>
 
       <div class="form-group">
@@ -28,23 +28,18 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" class="form-control">
+        <input type="text" id="image_box" name="query_image" class="form-control" placeholder="Enter a URL for the Image">
       </div>
 
-      <div class="form-group">
-        <label for="owner_id_box">
-          Owner
-        </label>
 
-        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control">
-      </div>
+  
 
       <div class="form-group">
         <label for="location_box">
           Location
         </label>
 
-        <input type="text" id="location_box" name="query_location" class="form-control">
+        <input type="text" id="location_box" name="query_location" class="form-control" placeholder="Enter pick up location, i.e. MPP or MILA">
       </div>
 
       <div class="form-group">
@@ -68,7 +63,7 @@
           Retailer
         </label>
 
-        <input type="text" id="retailer_box" name="query_retailer" class="form-control">
+        <input type="text" id="retailer_box" name="query_retailer" class="form-control" placeholder="Enter name of retailer">
       </div>
 
       <div class="form-group">
@@ -175,13 +170,7 @@
           Notes
         </th>
 
-        <th>
-          Created at
-        </th>
 
-        <th>
-          Updated at
-        </th>
 
         <th>
         </th>
@@ -198,7 +187,7 @@
         </td>
 
         <td>
-          <%= furniture.image %>
+          <img src="<%= furniture.image %>">
         </td>
 
         <td>
@@ -241,12 +230,7 @@
           <%= furniture.notes %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(furniture.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(furniture.updated_at) %> ago
-        </td>
+  
 
         <td>
           <a href="/furnitures/<%= furniture.id %>">

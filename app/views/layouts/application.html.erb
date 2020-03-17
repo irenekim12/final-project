@@ -13,9 +13,43 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   </head>
 
+
+
   <body>
+    <ul>
+      <% if @current_user !=nil %>
+        <li>
+          <a href ="/user_profile">
+          <%= @current_user.username %>
+          </a>
+        </li>
+        <li>
+          <a href="/user_sign_out">
+          Sign out 
+          </a>
+        </li>
+    <% else %>
+      <li>
+          <a href="/user_sign_up">
+          Sign up
+          </a>
+        </li>
+  
+      <li>
+          <a href="/user_sign_in">
+          Sign in
+          </a>
+        </li>
+
+    <% end %>
+
+     </ul> 
+
+
     <%= yield %>
   </body>
 </html>

@@ -16,7 +16,7 @@ class FurnituresController < ApplicationController
     @furniture = Furniture.new
     @furniture.name = params.fetch("query_name")
     @furniture.image = params.fetch("query_image")
-    @furniture.owner_id = params.fetch("query_owner_id")
+    @furniture.owner_id = @current_user.id
     @furniture.location = params.fetch("query_location")
     @furniture.item_details = params.fetch("query_item_details")
     @furniture.category = params.fetch("query_category")
