@@ -14,4 +14,11 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_many :furnitures, :foreign_key => "owner_id", :dependent => :destroy
+  has_many :comments, :foreign_key => "author_id", :dependent => :destroy
+  has_many :bookmarks, :dependent => :destroy
+
+  validates :username, :presence => true
+  validates :username, :uniqueness => true
 end

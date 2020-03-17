@@ -2,6 +2,44 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Bookmark resource:
+
+  # CREATE
+  post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
+          
+  # READ
+  get("/bookmarks", { :controller => "bookmarks", :action => "index" })
+  
+  get("/bookmarks/:path_id", { :controller => "bookmarks", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_bookmark/:path_id", { :controller => "bookmarks", :action => "update" })
+  
+  # DELETE
+  get("/delete_bookmark/:path_id", { :controller => "bookmarks", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Comment resource:
+
+  # CREATE
+  post("/insert_comment", { :controller => "comments", :action => "create" })
+          
+  # READ
+  get("/comments", { :controller => "comments", :action => "index" })
+  
+  get("/comments/:path_id", { :controller => "comments", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_comment/:path_id", { :controller => "comments", :action => "update" })
+  
+  # DELETE
+  get("/delete_comment/:path_id", { :controller => "comments", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Furniture resource:
 
   # CREATE
