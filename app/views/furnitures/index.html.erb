@@ -20,7 +20,7 @@
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" class="form-control" placeholder="Enter a furniture name">
+        <input type="text" id="name_box" name="query_name" class="form-control" placeholder="Enter a furniture name. Concise but descriptive!">
       </div>
 
       <div class="form-group">
@@ -30,8 +30,6 @@
 
         <input type="text" id="image_box" name="query_image" class="form-control" placeholder="Enter a URL for the Image">
       </div>
-
-
   
 
       <div class="form-group">
@@ -47,16 +45,43 @@
           Item details
         </label>
 
-        <textarea id="item_details_box" name="query_item_details" class="form-control" rows="3"></textarea>
+        <textarea id="item_details_box" name="query_item_details" class="form-control" rows="3"placeholder="Enter details around furniture condition, i.e. like new, frat house status, corner chewed up by a dog, etc."></textarea>
       </div>
 
       <div class="form-group">
         <label for="category_box">
           Category
         </label>
-
-        <input type="text" id="category_box" name="query_category" class="form-control">
+        <select id="category_box" name="query_category">
+            <option value="Bedroom">
+              Bedroom
+            </option>
+            <option value="Bathroom">
+              Bathroom
+            <option value="Living Room">
+              Living Room 
+            </option>
+            <option value="Kitchen">
+              Kitchen
+            </option>
+            <option value="Dining Room">
+              Dining Room 
+            </option>
+            <option value="Decorations">
+              Decorations
+            </option>
+            <option value="Lighting">
+              Lighting
+            </option>
+            <option value="Storage">
+              Storage 
+            </option>
+            <option value="Miscellaneous">
+              Miscellaneous  
+            </option>
+        </select>
       </div>
+
 
       <div class="form-group">
         <label for="retailer_box">
@@ -118,9 +143,6 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
@@ -130,9 +152,6 @@
           Image
         </th>
 
-        <th>
-          Owner
-        </th>
 
         <th>
           Location
@@ -154,9 +173,7 @@
           Retail price
         </th>
 
-        <th>
-          Purchase date
-        </th>
+    
 
         <th>
           Asking price
@@ -178,9 +195,7 @@
 
       <% @furnitures.each do |furniture| %>
       <tr>
-        <td>
-          <%= furniture.id %>
-        </td>
+      
 
         <td>
           <%= furniture.name %>
@@ -190,9 +205,7 @@
           <img src="<%= furniture.image %>">
         </td>
 
-        <td>
-          <%= furniture.owner_id %>
-        </td>
+      
 
         <td>
           <%= furniture.location %>
@@ -211,19 +224,28 @@
         </td>
 
         <td>
-          <%= furniture.retail_price %>
+          <%= number_to_currency(furniture.retail_price, :unit => "$", :separator => ".", :delimiter => ",") %>
+        </td>
+
+     
+        <td>
+          <%= number_to_currency(furniture.asking_price, :unit => "$", :separator => ".", :delimiter => ",") %>
         </td>
 
         <td>
-          <%= furniture.purchase_date %>
-        </td>
-
-        <td>
-          <%= furniture.asking_price %>
-        </td>
-
-        <td>
-          <%= furniture.sell_by %>
+          <%= furniture.sell_by
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+   %>
         </td>
 
         <td>
