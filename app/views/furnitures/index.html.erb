@@ -1,0 +1,262 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all furnitures
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new furniture
+    </h2>
+
+    <form action="/insert_furniture" method="post">
+      <div class="form-group">
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="item_details_box">
+          Item details
+        </label>
+
+        <textarea id="item_details_box" name="query_item_details" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="category_box">
+          Category
+        </label>
+
+        <input type="text" id="category_box" name="query_category" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="retailer_box">
+          Retailer
+        </label>
+
+        <input type="text" id="retailer_box" name="query_retailer" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="retail_price_box">
+          Retail price
+        </label>
+
+        <input type="text" id="retail_price_box" name="query_retail_price" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="purchase_date_box">
+          Purchase date
+        </label>
+
+        <input type="datetime-local" id="purchase_date_box" name="query_purchase_date" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="asking_price_box">
+          Asking price
+        </label>
+
+        <input type="text" id="asking_price_box" name="query_asking_price" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="sell_by_box">
+          Sell by
+        </label>
+
+        <input type="datetime-local" id="sell_by_box" name="query_sell_by" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create furniture
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Item details
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Retailer
+        </th>
+
+        <th>
+          Retail price
+        </th>
+
+        <th>
+          Purchase date
+        </th>
+
+        <th>
+          Asking price
+        </th>
+
+        <th>
+          Sell by
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @furnitures.each do |furniture| %>
+      <tr>
+        <td>
+          <%= furniture.id %>
+        </td>
+
+        <td>
+          <%= furniture.name %>
+        </td>
+
+        <td>
+          <%= furniture.image %>
+        </td>
+
+        <td>
+          <%= furniture.owner_id %>
+        </td>
+
+        <td>
+          <%= furniture.location %>
+        </td>
+
+        <td>
+          <%= furniture.item_details %>
+        </td>
+
+        <td>
+          <%= furniture.category %>
+        </td>
+
+        <td>
+          <%= furniture.retailer %>
+        </td>
+
+        <td>
+          <%= furniture.retail_price %>
+        </td>
+
+        <td>
+          <%= furniture.purchase_date %>
+        </td>
+
+        <td>
+          <%= furniture.asking_price %>
+        </td>
+
+        <td>
+          <%= furniture.sell_by %>
+        </td>
+
+        <td>
+          <%= furniture.notes %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(furniture.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(furniture.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/furnitures/<%= furniture.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
