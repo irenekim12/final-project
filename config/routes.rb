@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "furnitures", :action => "index" })
 
   # Routes for the Bookmark resource:
 
