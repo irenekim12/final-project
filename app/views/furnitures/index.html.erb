@@ -202,7 +202,7 @@
         </td>
 
         <td>
-          <img src="<%= furniture.image %>">
+           <img class="image-size" src="<%= furniture.image %>">
         </td>
 
       
@@ -233,19 +233,7 @@
         </td>
 
         <td>
-          <%= furniture.sell_by
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-   %>
+          <%= furniture.sell_by.strftime("%B %d %Y")%>
         </td>
 
         <td>

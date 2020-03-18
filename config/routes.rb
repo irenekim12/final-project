@@ -74,7 +74,7 @@ Rails.application.routes.draw do
   # DELETE RECORD
   get("/cancel_user_account", { :controller => "users", :action => "destroy" })
 
-  get("/users/:the_username", {:controller => "users", :action => "show"})
+  get("/user/:the_username", {:controller => "users", :action => "show"})
   # ------------------------------
 
   # SIGN IN FORM

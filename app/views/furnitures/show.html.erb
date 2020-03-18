@@ -30,14 +30,16 @@
         Image
       </dt>
       <dd>
-       <img src="<%= @furniture.image %>">
+        <img class="image-size" src="<%= @furniture.image %>">
       </dd>
+
+
 
       <dt>
         Owner
       </dt>
       <dd>
-        <%= @furniture.owner_id %>
+        <%= @furniture.owner.username %>
       </dd>
 
       <dt>
@@ -72,28 +74,28 @@
         Retail price
       </dt>
       <dd>
-        <%= @furniture.retail_price %>
+        <%= number_to_currency(@furniture.retail_price, :unit => "$", :separator => ".", :delimiter => ",") %>
       </dd>
 
       <dt>
         Purchase date
       </dt>
       <dd>
-        <%= @furniture.purchase_date %>
+        <%= @furniture.purchase_date.strftime("%B %d %Y") %>
       </dd>
 
       <dt>
         Asking price
       </dt>
       <dd>
-        <%= @furniture.asking_price %>
+        <%= number_to_currency(@furniture.asking_price, :unit => "$", :separator => ".", :delimiter => ",") %>
       </dd>
 
       <dt>
         Sell by
       </dt>
       <dd>
-        <%= @furniture.sell_by %>
+        <%= @furniture.sell_by.strftime("%B %d %Y") %>
       </dd>
 
       <dt>
@@ -133,13 +135,7 @@
         <input type="text" id="image_box" name="query_image" class="form-control" value="<%= @furniture.image %>">
       </div>
 
-      <div class="form-group">
-        <label for="owner_id_box">
-          Owner
-        </label>
-
-        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control" value="<%= @furniture.owner_id %>">
-      </div>
+ 
 
       <div class="form-group">
         <label for="location_box">
@@ -181,14 +177,6 @@
         <input type="text" id="retail_price_box" name="query_retail_price" class="form-control" value="<%= @furniture.retail_price %>">
       </div>
 
-      <div class="form-group">
-        <label for="purchase_date_box">
-          Purchase date
-        </label>
-
-        <input type="datetime-local" id="purchase_date_box" name="query_purchase_date"
-          class="form-control" value="<%= @furniture.purchase_date %>">
-      </div>
 
       <div class="form-group">
         <label for="asking_price_box">
@@ -196,6 +184,15 @@
         </label>
 
         <input type="text" id="asking_price_box" name="query_asking_price" class="form-control" value="<%= @furniture.asking_price %>">
+      </div>
+
+      <div class="form-group">
+        <label for="purchase_date_box">
+          Purchase date
+        </label>
+
+        <input type="datetime-local" id="purchase_date_box" name="query_purchase_date"
+          class="form-control" value="<%= @furniture.purchase_date %>">
       </div>
 
       <div class="form-group">

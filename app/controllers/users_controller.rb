@@ -51,8 +51,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    the_username = params.fetch("query_username")
-    @user = User.where({ :username => the_username }).at(0)
     render({ :template => "users/show.html.erb" })
   end
   

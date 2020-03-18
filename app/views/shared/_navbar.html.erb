@@ -12,15 +12,34 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Links
+            Navigation
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/bookmarks" class="dropdown-item">
-              Profile NEED TO EDIT** 
-            </a>
+        
             <a href="/furnitures" class="dropdown-item">
-              Furnitures
+              Furniture for Hawking
             </a>
+            <% if @current_user !=nil %>
+            <a href ="/user/<%=@current_user.username %>" class="dropdown-item">
+              <%= @current_user.username %>'s Profile
+            </a>
+
+            <a href="/user_sign_out" class="dropdown-item">
+              Sign out 
+          </a>
+         <% else %>
+          <a href="/user_sign_up" class="dropdown-item">
+          Sign up
+          </a>
+    
+          <a href="/user_sign_in" class="dropdown-item">
+          Sign in
+          </a>
+        </li>
+
+
+
+        <% end %>
          </div>
     
 
