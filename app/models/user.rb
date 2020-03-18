@@ -18,7 +18,13 @@ class User < ApplicationRecord
   has_many :furnitures, :foreign_key => "owner_id", :dependent => :destroy
   has_many :comments, :foreign_key => "author_id", :dependent => :destroy
   has_many :bookmarks, :dependent => :destroy
+  has_many :bookmarked_furnitures, :through => :bookmarks, :source => :furniture
 
   validates :username, :presence => true
   validates :username, :uniqueness => true
+
+  def has_bookmarked?(furniture_id)
+    return self.bookmarked_furnitures.exists?(furniture_id)
+  end
+  
 end

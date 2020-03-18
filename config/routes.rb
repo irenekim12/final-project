@@ -47,7 +47,7 @@ Rails.application.routes.draw do
           
   # READ
   get("/furnitures", { :controller => "furnitures", :action => "index" })
-  
+  get("/furnitures/form", { :controller => "furnitures", :action => "form" })
   get("/furnitures/:path_id", { :controller => "furnitures", :action => "show" })
   
   # UPDATE

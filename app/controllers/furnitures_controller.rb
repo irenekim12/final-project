@@ -5,10 +5,10 @@ class FurnituresController < ApplicationController
     render({ :template => "furnitures/index.html.erb" })
   end
 
+
   def show
     the_id = params.fetch("path_id")
     @furniture = Furniture.where({:id => the_id }).at(0)
-
     render({ :template => "furnitures/show.html.erb" })
   end
 
@@ -68,4 +68,10 @@ class FurnituresController < ApplicationController
 
     redirect_to("/furnitures", { :notice => "Furniture deleted successfully."} )
   end
+
+
+  def form
+    render({ :template => "furnitures/form.html.erb" })
+  end
+
 end

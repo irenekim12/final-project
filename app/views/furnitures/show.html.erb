@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Furniture #<%= @furniture.id %> details
+      Furniture details
     </h1>
 
     <div class="row mb-3">
@@ -106,6 +106,33 @@
       </dd>
 
     </dl>
+
+
+
+    <% if @current_user.has_bookmarked?(@furniture.id) %>
+      <dt>Unbookmark</dt>
+      <dd>
+        <form action="/delete_bookmark/<%= @furniture.extract_bookmark(@current_user.id) %>">
+          <button> Unlike </button>
+        </form>
+      </dd>        
+    <% else %>
+      <dt>Like what you see? Save for later</dt>
+      <dd>
+        <form action="/insert_bookmark" method="post">
+          <input type="hidden" value="<%= @furniture.id %>" name="query_furniture_id">
+          <input type="hidden" value="<%= @current_user.id %>" name="query_user_id">
+          <button>Bookmark</button>
+        </form>
+      </dd>    
+    <% end %>
+
+
+
+
+
+
+
   </div>
 </div>
 
@@ -177,15 +204,6 @@
         <input type="text" id="retail_price_box" name="query_retail_price" class="form-control" value="<%= @furniture.retail_price %>">
       </div>
 
-
-      <div class="form-group">
-        <label for="asking_price_box">
-          Asking price
-        </label>
-
-        <input type="text" id="asking_price_box" name="query_asking_price" class="form-control" value="<%= @furniture.asking_price %>">
-      </div>
-
       <div class="form-group">
         <label for="purchase_date_box">
           Purchase date
@@ -193,6 +211,14 @@
 
         <input type="datetime-local" id="purchase_date_box" name="query_purchase_date"
           class="form-control" value="<%= @furniture.purchase_date %>">
+      </div>
+
+      <div class="form-group">
+        <label for="asking_price_box">
+          Asking price
+        </label>
+
+        <input type="text" id="asking_price_box" name="query_asking_price" class="form-control" value="<%= @furniture.asking_price %>">
       </div>
 
       <div class="form-group">
@@ -220,3 +246,51 @@
 </div>
 
 <hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h3>
+      Comments
+    </h3>
+
+
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+
+  <% @furniture.comments.each do |comment| %>
+  <tr>
+    <td>
+      <%= comment.author.username %>
+    </td>
+
+    <td>
+      <%= comment.body %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(comment.created_at) %>
+    </td>
+  </tr>
+  
+  <% end %>
+</table>
+
+<h3>Add a new comment</h3>
+
+<form action="/insert_comment" method="post">
+  <input id="browser_furniture_id" type="hidden" value="<%= @furniture.id %>" name="query_furniture_id">
+
+
+  <label for="browser_comment">Comment</label>
+  <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
+
+  <button>Add comment</button>
+</form>
+
+  </div>
+</div>

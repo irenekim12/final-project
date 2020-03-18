@@ -17,8 +17,15 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         
             <a href="/furnitures" class="dropdown-item">
-              Furniture for Hawking
+              Furniture for hawking
             </a>
+
+            <a href="/furnitures/form" class="dropdown-item">
+              Create a listing
+            </a>
+
+
+
             <% if @current_user !=nil %>
             <a href ="/user/<%=@current_user.username %>" class="dropdown-item">
               <%= @current_user.username %>'s Profile

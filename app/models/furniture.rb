@@ -28,4 +28,9 @@ has_many :bookmarks, :dependent => :destroy
 validates :owner_id, :presence => true
 validates :image, :presence => true
 
+
+def extract_bookmark(user_id)
+  return Bookmark.where(:furniture_id => self.id, :user_id => user_id).at(0).id
+end
+
 end

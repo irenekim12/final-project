@@ -53,5 +53,15 @@ class UsersController < ApplicationController
   def show
     render({ :template => "users/show.html.erb" })
   end
+
+
+  def bookmarked_furniture
+    @current_user.bookmarked_furnitures
+      render({ :template => "furnitures/show.html.erb" })
+  end
+
+
+
+
   
 end
