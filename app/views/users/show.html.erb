@@ -1,2 +1,69 @@
 
-<h1><%= @current_user.username %></h1>
+    <h1>
+      <%= @current_user.username %>'s bookmark details
+    </h1>
+
+
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+       <th>
+          Image
+        </th>
+
+
+        <th>
+          Furniture
+        </th>
+
+        <th>
+          Retailer
+        </th>
+
+        <th>
+          Asking Price
+        </th>
+
+        <th>
+          Item Details
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @current_user.bookmarked_furnitures.each do |bookmark| %>
+      <tr>
+       <td>
+          <img class="image-size" src="<%= bookmark.image %>">
+        </td>
+
+        <td>
+          <%= bookmark.name %>
+        </td>
+
+        <td>
+          <%= bookmark.retailer %>
+        </td>
+
+        <td>
+          <%= number_to_currency(bookmark.retail_price, :unit => "$", :separator => ".", :delimiter => ",") %>
+        </td>
+        <td>
+          <%= bookmark.item_details %>
+        </td>
+
+        <td>
+          <a href="/furnitures/<%= bookmark.id %>">
+            Go to listing
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

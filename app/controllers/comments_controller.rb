@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     the_id = params.fetch("path_id")
     @comment = Comment.where({ :id => the_id }).at(0)
 
-    @comment.author_id = params.fetch("query_author_id")
+    @comment.author_id = params.fetch(:user_id)
     @comment.furniture_id = params.fetch("query_furniture_id")
     @comment.body = params.fetch("query_body")
 
