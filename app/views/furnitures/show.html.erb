@@ -18,6 +18,35 @@
       </div>
     </div>
 
+
+
+
+
+
+        <% if @current_user !=nil %>
+            <a href ="/user/<%=@current_user.username %>" class="dropdown-item">
+              <%= @current_user.username %>'s Profile
+            </a>
+
+            <a href="/user_sign_out" class="dropdown-item">
+              sign out 
+            </a>
+         <% else %>
+            <a href="/user_sign_up" class="dropdown-item">
+              sign up
+            </a>
+    
+            <a href="/user_sign_in" class="dropdown-item">
+              sign in
+            </a>
+          </li>
+        <% end %>
+
+
+
+
+    
+
     <dl>
       <dt>
         name
