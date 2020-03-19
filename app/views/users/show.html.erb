@@ -10,24 +10,28 @@
     <table class="table">
       <tr>
        <th>
-          Image
+          image
         </th>
 
 
         <th>
-          Furniture
+          furniture
         </th>
 
         <th>
-          Retailer
+          retailer
+        </th>
+      
+        <th>
+          location
+        </th>
+        
+        <th>
+          asking price
         </th>
 
         <th>
-          Asking Price
-        </th>
-
-        <th>
-          Item Details
+          item details
         </th>
 
         <th>
@@ -49,7 +53,11 @@
         </td>
 
         <td>
-          <%= number_to_currency(bookmark.retail_price, :unit => "$", :separator => ".", :delimiter => ",") %>
+          <%= bookmark.location %>
+        </td>
+
+        <td>
+          <%= number_to_currency(bookmark.asking_price, :unit => "$", :separator => ".", :delimiter => ",") %>
         </td>
         <td>
           <%= bookmark.item_details %>

@@ -10,10 +10,10 @@
 #  location      :string
 #  name          :string
 #  notes         :text
-#  purchase_date :datetime
+#  purchase_date :date
 #  retail_price  :float
 #  retailer      :string
-#  sell_by       :datetime
+#  sell_by       :date
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  owner_id      :integer

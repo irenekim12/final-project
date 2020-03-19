@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      List of Furniture for Sale
+      furniture for sale
     </h1>
   </div>
 </div>
@@ -13,46 +13,45 @@
       <tr>
 
         <th>
-          Name
+          name
         </th>
 
         <th>
-          Image
-        </th>
-
-
-        <th>
-          Category
+          image
         </th>
 
         <th>
-          Item details
+          retailer
         </th>
 
         <th>
-        Location
+          category
         </th>
 
         <th>
-          Retailer
+        location
+        </th>
+
+
+    
+
+        <th>
+          asking price
         </th>
 
         <th>
-          Retail price
+          sell by date
+        </th>
+
+        
+        <th>
+          item details
         </th>
 
     
 
         <th>
-          Asking price
-        </th>
-
-        <th>
-          Sell by
-        </th>
-
-        <th>
-          Notes
+          notes
         </th>
 
 
@@ -74,26 +73,21 @@
         </td>
 
       
+        <td>
+          <%= furniture.retailer %>
+        </td>
+
+
 
         <td>
           <%= furniture.category %>
         </td>
 
         <td>
-          <%= furniture.item_details %>
-        </td>
-
-        <td>
           <%= furniture.location %>
         </td>
 
-        <td>
-          <%= furniture.retailer %>
-        </td>
-
-        <td>
-          <%= number_to_currency(furniture.retail_price, :unit => "$", :separator => ".", :delimiter => ",") %>
-        </td>
+      
 
      
         <td>
@@ -101,8 +95,14 @@
         </td>
 
         <td>
-          <%= furniture.sell_by.strftime("%B %d %Y")%>
+          <%= furniture.sell_by.strftime("%B %d %Y")  %>
         </td>
+
+        
+        <td>
+          <%= furniture.item_details %>
+        </td>
+
 
         <td>
           <%= furniture.notes %>
@@ -112,7 +112,7 @@
 
         <td>
           <a href="/furnitures/<%= furniture.id %>">
-            Show details
+            show details
           </a>
         </td>
       </tr>

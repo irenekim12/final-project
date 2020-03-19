@@ -1,33 +1,33 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Furniture details
+      furniture details
     </h1>
 
     <div class="row mb-3">
       <div class="col">
         <a href="/furnitures" class="btn btn-block btn-outline-secondary">
-          Go back
+          go back
         </a>
       </div>
 
       <div class="col">
         <a href="/delete_furniture/<%= @furniture.id %>" class="btn btn-block btn-outline-secondary">
-          Delete furniture
+          delete furniture
         </a>
       </div>
     </div>
 
     <dl>
       <dt>
-        Name
+        name
       </dt>
       <dd>
         <%= @furniture.name %>
       </dd>
 
       <dt>
-        Image
+        image
       </dt>
       <dd>
         <img class="image-size" src="<%= @furniture.image %>">
@@ -36,70 +36,70 @@
 
 
       <dt>
-        Owner
+        owner's contact
       </dt>
       <dd>
-        <%= @furniture.owner.username %>
+        <%= @furniture.owner.email %>
       </dd>
 
       <dt>
-        Location
+        location
       </dt>
       <dd>
         <%= @furniture.location %>
       </dd>
 
       <dt>
-        Item details
+        item details
       </dt>
       <dd>
         <%= @furniture.item_details %>
       </dd>
 
       <dt>
-        Category
+        category
       </dt>
       <dd>
         <%= @furniture.category %>
       </dd>
 
       <dt>
-        Retailer
+        retailer
       </dt>
       <dd>
         <%= @furniture.retailer %>
       </dd>
 
       <dt>
-        Retail price
+        retail price
       </dt>
       <dd>
         <%= number_to_currency(@furniture.retail_price, :unit => "$", :separator => ".", :delimiter => ",") %>
       </dd>
 
       <dt>
-        Purchase date
+        purchased date
       </dt>
       <dd>
         <%= @furniture.purchase_date.strftime("%B %d %Y") %>
       </dd>
 
       <dt>
-        Asking price
+        asking price
       </dt>
       <dd>
         <%= number_to_currency(@furniture.asking_price, :unit => "$", :separator => ".", :delimiter => ",") %>
       </dd>
 
       <dt>
-        Sell by
+        sell by date
       </dt>
       <dd>
         <%= @furniture.sell_by.strftime("%B %d %Y") %>
       </dd>
 
       <dt>
-        Notes
+        notes
       </dt>
       <dd>
         <%= @furniture.notes %>
@@ -110,19 +110,19 @@
 
 
     <% if @current_user.has_bookmarked?(@furniture.id) %>
-      <dt>Unbookmark</dt>
+      <dt>unbookmark</dt>
       <dd>
         <form action="/delete_bookmark/<%= @furniture.extract_bookmark(@current_user.id) %>">
-          <button> Take off my bookmark! </button>
+          <button> take off my bookmark! </button>
         </form>
       </dd>        
     <% else %>
-      <dt>Like what you see? Save for later</dt>
+      <dt>like what you see? save for later</dt>
       <dd>
         <form action="/insert_bookmark" method="post">
           <input type="hidden" value="<%= @furniture.id %>" name="query_furniture_id">
           <input type="hidden" value="<%= @current_user.id %>" name="query_user_id">
-          <button>Bookmark</button>
+          <button>bookmark</button>
         </form>
       </dd>    
     <% end %>
@@ -142,13 +142,13 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h2>
-      Edit furniture
+      edit furniture
     </h2>
 
     <form action="/modify_furniture/<%= @furniture.id %>"  method="post" >
       <div class="form-group">
         <label for="name_box">
-          Name
+          name
         </label>
 
         <input type="text" id="name_box" name="query_name" class="form-control" value="<%= @furniture.name %>">
@@ -156,7 +156,7 @@
 
       <div class="form-group">
         <label for="image_box">
-          Image
+          image
         </label>
 
         <input type="text" id="image_box" name="query_image" class="form-control" value="<%= @furniture.image %>">
@@ -166,7 +166,7 @@
 
       <div class="form-group">
         <label for="location_box">
-          Location
+          location
         </label>
 
         <input type="text" id="location_box" name="query_location" class="form-control" value="<%= @furniture.location %>">
@@ -174,7 +174,7 @@
 
       <div class="form-group">
         <label for="item_details_box">
-          Item details
+          item details
         </label>
 
         <textarea id="item_details_box" name="query_item_details" class="form-control" rows="3"><%= @furniture.item_details %></textarea>
@@ -182,7 +182,7 @@
 
       <div class="form-group">
         <label for="category_box">
-          Category
+          category
         </label>
 
         <input type="text" id="category_box" name="query_category" class="form-control" value="<%= @furniture.category %>">
@@ -190,7 +190,7 @@
 
       <div class="form-group">
         <label for="retailer_box">
-          Retailer
+          retailer
         </label>
 
         <input type="text" id="retailer_box" name="query_retailer" class="form-control" value="<%= @furniture.retailer %>">
@@ -198,7 +198,7 @@
 
       <div class="form-group">
         <label for="retail_price_box">
-          Retail price
+          retail price
         </label>
 
         <input type="text" id="retail_price_box" name="query_retail_price" class="form-control" value="<%= @furniture.retail_price %>">
@@ -206,16 +206,16 @@
 
       <div class="form-group">
         <label for="purchase_date_box">
-          Purchase date
+          purchase date
         </label>
 
-        <input type="datetime-local" id="purchase_date_box" name="query_purchase_date"
+        <input type="date" id="purchase_date_box" name="query_purchase_date"
           class="form-control" value="<%= @furniture.purchase_date %>">
       </div>
 
       <div class="form-group">
         <label for="asking_price_box">
-          Asking price
+          asking price
         </label>
 
         <input type="text" id="asking_price_box" name="query_asking_price" class="form-control" value="<%= @furniture.asking_price %>">
@@ -223,23 +223,23 @@
 
       <div class="form-group">
         <label for="sell_by_box">
-          Sell by
+          sell by
         </label>
 
-        <input type="datetime-local" id="sell_by_box" name="query_sell_by"
+        <input type="date" id="sell_by_box" name="query_sell_by"
           class="form-control" value="<%= @furniture.sell_by %>">
       </div>
 
       <div class="form-group">
         <label for="notes_box">
-          Notes
+          notes
         </label>
 
         <textarea id="notes_box" name="query_notes" class="form-control" rows="3"><%= @furniture.notes %></textarea>
       </div>
 
       <button class="btn btn-block btn-outline-secondary">
-        Update furniture
+        update furniture
       </button>
     </form>
   </div>
@@ -249,48 +249,56 @@
 
 
 <div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
+<div class="col-md-8 offset-md-2">
     <h3>
-      Comments
+      comments
     </h3>
 
 
-<table>
-  <tr>
-    <th>Commenter</th>
-    <th>Comment</th>
-    <th>Posted</th>
-  </tr>
+    <table>
+      <tr>
+        <th>Commenter</th>
+        <th>Comment</th>
+        <th>Posted</th>
+      </tr>
 
-  <% @furniture.comments.each do |comment| %>
-  <tr>
-    <td>
-      <%= comment.author.username %>
-    </td>
+      <% @furniture.comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= comment.author.username %>
+        </td>
 
-    <td>
-      <%= comment.body %>
-    </td>
+        <td>
+          <%= comment.body %>
+        </td>
 
-    <td>
-      <%= time_ago_in_words(comment.created_at) %>
-    </td>
-  </tr>
-  
-  <% end %>
-</table>
+        <td>
+          <%= time_ago_in_words(comment.created_at) %>
+        </td>
+      </tr>
+      
+      <% end %>
+    </table>
 
-<h3>Add a new comment</h3>
+
+
+
+<h3>got something to say?</h3>
 
 <form action="/insert_comment" method="post">
+  <div class ="form-group">
   <input id="browser_furniture_id" type="hidden" value="<%= @furniture.id %>" name="query_furniture_id">
+  </div>
 
-
+  <div class ="form-group">
   <label for="browser_comment">Comment</label>
-  <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
+  <textarea id="browser_comment" name="query_body"  class="form-control" rows="3" placeholder="Enter a comment..."></textarea>
+  </div>
 
-  <button>Add comment</button>
-</form>
+  <button class="btn btn-block btn-outline-secondary">add comment</button>
+  </form>
 
   </div>
 </div>
+
+
