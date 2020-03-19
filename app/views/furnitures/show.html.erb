@@ -251,15 +251,15 @@
 <div class="row mb-3">
 <div class="col-md-8 offset-md-2">
     <h3>
-      comments
+      got something to say or ask?
     </h3>
 
 
     <table>
       <tr>
-        <th>Commenter</th>
-        <th>Comment</th>
-        <th>Posted</th>
+        <th>commenter</th>
+        <th>comment</th>
+        <th>posted</th>
       </tr>
 
       <% @furniture.comments.each do |comment| %>
@@ -281,17 +281,13 @@
     </table>
 
 
-
-
-<h3>got something to say?</h3>
-
 <form action="/insert_comment" method="post">
   <div class ="form-group">
   <input id="browser_furniture_id" type="hidden" value="<%= @furniture.id %>" name="query_furniture_id">
   </div>
 
   <div class ="form-group">
-  <label for="browser_comment">Comment</label>
+  <label for="browser_comment"></label>
   <textarea id="browser_comment" name="query_body"  class="form-control" rows="3" placeholder="Enter a comment..."></textarea>
   </div>
 
